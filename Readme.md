@@ -45,47 +45,46 @@ Here I am going to tell you how to use this utility through [docker](https://www
 
  1. **LAST_EXECUTION_START**="2014-06-06T09:08:00.948Z"
     
-	This data time used to import the data from MS-SQL audit log table. 
- All records in auditlog table with timestamp greater than this will be imported in Elastic search.
+	This data time used to import the data from MS-SQL audit log table. All records in auditlog table with timestamp greater than this will be imported in Elastic search.
 
  2. **INDEX_NAME**=** Provide the value **
-
-This one is index name for elasticsearch.
+ 
+	This one is index name for elasticsearch.
 
  3. **CLUSTER**=** Provide the value **
- 
-Provide the elasticsearch cluster name.
+ 	
+	Provide the elasticsearch cluster name.
 
  4. **ES_HOST**=** Provide the value **
  
- Provide the elastic search host name or IP address.
+ 	Provide the elastic search host name or IP address.
 
  5. **ES_PORT**="9300"
 
- Provide the elastic search host port number.
+ 	Provide the elastic search host port number.
 
  6. **SCHEDULE**="0 0/10 * * * ?"
 
-Default interval for data-importer is 10 min. this is [Quartz cron trigger](http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger) syntax. 
+	Default interval for data-importer is 10 min. this is [Quartz cron trigger](http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger) syntax. 
  
  7. **SQL_SERVER_HOST**="Provide the value"
 
-It should be sql server database IP or hostname.
+	It should be sql server database IP or hostname.
 
  8. **DB_NAME**="Provide the value"
 
-It should be sql server database name.
+	It should be sql server database name.
 
 
  9. **DB_USER_NAME**="Provide the value"
  
-It should be sql server user name, here server authentication is required.
+	It should be sql server user name, here server authentication is required.
 
  10. **DB_PASSWORD**="Provide the value"
 
-It should be sql server user password, here server authentication is required.
+	It should be sql server user password, here server authentication is required.
 
-**Note:** Please change the environment variable as per your requirement
+	**Note:** Please change the environment variable as per your requirement
 
 		docker run -d --name data-importer -e LAST_EXECUTION_START="2014-06-06T09:08:00.948Z" \
 		  -e INDEX_NAME="myindex"  -e CLUSTER="elasticsearch" -e ES_HOST="myeshost" \
@@ -94,7 +93,7 @@ It should be sql server user password, here server authentication is required.
 
 
 
-Lastly checkout the status of elasticsearch index then you can find data over there.
+	Lastly checkout the status of elasticsearch index then you can find data over there.
 
 
 
