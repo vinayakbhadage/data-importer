@@ -1,4 +1,22 @@
-# Import data from MSSQL into Elasticsearch  #
+# Import data from MS sql Server into Elasticsearch 1.6#
+
+**Problem:**
+
+Need to provide the analytics and visualization for audit log data which is stored in relational database. 
+ 
+**Solution**
+
+one of the solution to this problem is to visualize the data in open source tool like [kibana](https://www.elastic.co/products/kibana). But kibana uses the [elasticsearch](https://www.elastic.co/products/elasticsearch) for search and storage purpose.
+
+So that need to import selected records from relational database into the elasticsearch 1.6. The new index will be created in elasticsearch for this data and it will be used kibana.
+
+Prior to elasticsearch 1.6 the [river plugin](https://www.elastic.co/blog/deprecating-rivers) was available for this purpose but it is now deprecated.
+
+But to solve the same problem another standalone java utility known as [elasticsearch - jdbc](https://github.com/jprante/elasticsearch-jdbc) is available. 
+
+Here I am going to tell you how to use this utility through [docker](https://www.docker.com/) so whenever you need it. it would be only three steps process for you i.e clone it, build image and start the container with parameter. 
+
+
 
 **Prerequisite:**
 
@@ -8,10 +26,10 @@
 	
 		docker run -d -p 9200:9200 -p 9300:9300 elasticsearch 
 
-4. Install [Kibana](http://git.tavisca.com/vbhadage/docker-kibana)
+4. Install [Kibana](https://www.elastic.co/products/kibana)
 	1. check out 
 	
-			git clone http://git.tavisca.com/vbhadage/docker-kibana.git
+			git clone https://github.com/vinayakbhadage/docker-kibana.git
 
 	2. Build the image
 
@@ -25,9 +43,9 @@
 
 
 
-**Step 1:** Check out the docker file from **git.tavisca.com**
+**Step 1:** Check out the docker file [https://github.com/vinayakbhadage/data-importer](https://github.com/vinayakbhadage/data-importer)
 
-	git clone http://git.tavisca.com/vbhadage/data-importer.git
+	git clone https://github.com/vinayakbhadage/data-importer.git
 
 
 **Step 2:** Build the images from Dockerfile
