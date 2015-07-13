@@ -27,19 +27,6 @@ Here I am going to tell you how to use this utility through [docker](https://www
 		docker run -d -p 9200:9200 -p 9300:9300 elasticsearch 
 
 4. Install [Kibana](https://www.elastic.co/products/kibana)
-	1. check out 
-	
-			git clone https://github.com/vinayakbhadage/docker-kibana.git
-
-	2. Build the image
-
-			git build -t doker-kibana .
-
-	3. Run the kibana with Elastic search image
-
-			docker run -d -e ELASTICSEARCH_PORT_9200_TCP_ADDR=***your-ES-IP-or-host-name** -p 5601:5601 docker-kibana
-	
-
 
 
 
@@ -47,12 +34,13 @@ Here I am going to tell you how to use this utility through [docker](https://www
 
 	git clone https://github.com/vinayakbhadage/data-importer.git
 
+**Step 2**: Change the required parameter from this file **dataimport.sh** as mentioned [here](https://github.com/jprante/elasticsearch-jdbc)
 
-**Step 2:** Build the images from Dockerfile
+**Step 3:** Build the images from Dockerfile
 
 	docker build -t data-importer .
 
-**Step 3:** Run the data-importer by setting following parameter 
+**Step 4:** Run the data-importer by setting following parameter 
 
 
  1. **LAST_EXECUTION_START**="2014-06-06T09:08:00.948Z"
@@ -100,6 +88,15 @@ It should be sql server user password, here server authentication is required.
 **Note:** Please change the environment variable as per your requirement
 
 		docker run -d --name data-importer -e LAST_EXECUTION_START="2014-06-06T09:08:00.948Z" \
-		  -e INDEX_NAME="vexiereauditlog3.2"  -e CLUSTER="elasticsearch" -e ES_HOST="192.168.2.220" \
-		  -e ES_PORT="9300" -e SCHEDULE="0 0/10 * * * ?" -e SQL_SERVER_HOST="alpha-sql" \
-		  -e DB_NAME="dMongoVexiere" -e DB_USER_NAME="vexiere" -e DB_PASSWORD="find-out" data-importer
+		  -e INDEX_NAME="myindex"  -e CLUSTER="elasticsearch" -e ES_HOST="myeshost" \
+		  -e ES_PORT="9300" -e SCHEDULE="0 0/10 * * * ?" -e SQL_SERVER_HOST="mydb" \
+		  -e DB_NAME="mydb" -e DB_USER_NAME="myuser" -e DB_PASSWORD="find-out" data-importer
+
+
+
+Lastly checkout the status of elasticsearch index then you can find data over there.
+
+
+
+
+

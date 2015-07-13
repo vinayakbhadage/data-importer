@@ -8,12 +8,12 @@ echo '{
     "jdbc" : {
 	"schedule" : "0 0/2 * * * ?",
         "statefile" : "statefile.json",
-        "url" : "jdbc:jtds:sqlserver://alpha-sql:1433;databasename=dMongoVexiere;",
-        "user" : "vexiere",
-        "password" : "xsw2XSW@",
+        "url" : "jdbc:jtds:sqlserver://dbserver:1433;databasename=dbname;",
+        "user" : "myuser",
+        "password" : "find-out",
         "sql" :[
             {
-                "statement" : "select *, id as _id from AuditLog where TimeStamp > ?",
+                "statement" : "select *, id as _id from Logtable where TimeStamp > ?",
                 "parameter" : [ "$metrics.lastexecutionstart" ]
             }
         ],
@@ -26,7 +26,7 @@ echo '{
         "type" : "auditlog",
 	"elasticsearch" : {
              "cluster" : "elasticsearch",
-             "host" : "192.168.2.220",
+             "host" : "myeshost",
              "port" : 9300
         }
     }
