@@ -8,7 +8,7 @@ Need to provide the analytics and visualization for audit log data which is stor
 
 one of the solution to this problem is to visualize the data in open source tool like [kibana](https://www.elastic.co/products/kibana). But kibana uses the [elasticsearch](https://www.elastic.co/products/elasticsearch) for search and storage purpose.
 
-So that need to import selected records from relational database into the elasticsearch 1.6. The new index will be created in elasticsearch for this data and it will be used kibana.
+So that need to import selected records from relational database into the elasticsearch 1.6. The new index will be created in elasticsearch for this data and it will be used by kibana.
 
 Prior to elasticsearch 1.6 the [river plugin](https://www.elastic.co/blog/deprecating-rivers) was available for this purpose but it is now deprecated.
 
