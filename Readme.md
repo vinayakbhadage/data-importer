@@ -1,4 +1,4 @@
-# Import data from MS sql Server into Elasticsearch 1.6#
+#How to import data from MS SQL Server into Elasticsearch 1.6#
 
 **Problem:**
 
@@ -6,35 +6,35 @@ Need to provide the analytics and visualization for audit log data which is stor
  
 **Solution**
 
-one of the solution to this problem is to visualize the data in open source tool like [kibana](https://www.elastic.co/products/kibana). But kibana uses the [elasticsearch](https://www.elastic.co/products/elasticsearch) for search and storage purpose.
+one of the solution to this problem is to visualize the data in open source tool like <a  target="_blank" href="https://www.elastic.co/products/kibana">kibana </a>. But kibana uses the <a  target="_blank" href="https://www.elastic.co/products/elasticsearch">elasticsearch</a> for search and storage purpose.
 
 So that need to import selected records from relational database into the elasticsearch 1.6. The new index will be created in elasticsearch for this data and it will be used by kibana.
 
-Prior to elasticsearch 1.6 the [river plugin](https://www.elastic.co/blog/deprecating-rivers) was available for this purpose but it is now deprecated.
+Prior to elasticsearch 1.6 the <a  target="_blank" href="https://www.elastic.co/blog/deprecating-rivers">river plugin</a> was available for this purpose but it is now deprecated.
 
-But to solve the same problem another standalone java utility known as [elasticsearch - jdbc](https://github.com/jprante/elasticsearch-jdbc) is available. 
+But to solve the same problem another standalone java utility known as <a  target="_blank" href="https://github.com/jprante/elasticsearch-jdbc">elasticsearch - jdbc</a> is available. 
 
-Here I am going to tell you how to use this utility through [docker](https://www.docker.com/) so whenever you need it. it would be only three steps process for you i.e clone it, build image and start the container with parameter. 
+Here I am going to tell you how to use this utility through <a  target="_blank" href="https://www.docker.com/">docker</a> so whenever you need it. it would be only three steps process for you i.e clone it, build image and start the container with parameter. 
 
 
 
 **Prerequisite:**
 
 1. Ubuntu 14.04
-2. Install [Docker Host](https://docs.docker.com/installation/ubuntulinux/)
-3. Install [elasticsearch](https://registry.hub.docker.com/_/elasticsearch/) 
+2. Install <a  target="_blank" href="https://docs.docker.com/installation/ubuntulinux/">Docker Host</a>
+3. Install <a  target="_blank" href="https://registry.hub.docker.com/_/elasticsearch/">elasticsearch</a> 
 	
 		docker run -d -p 9200:9200 -p 9300:9300 elasticsearch 
 
-4. Install [Kibana](https://www.elastic.co/products/kibana)
+4. Install <a  target="_blank" href="https://www.elastic.co/products/kibana">Kibana</a>
 
 
 
-**Step 1:** Check out the docker file [https://github.com/vinayakbhadage/data-importer](https://github.com/vinayakbhadage/data-importer)
+**Step 1:** Check out the docker file <a  target="_blank" href="https://github.com/vinayakbhadage/data-importer">https://github.com/vinayakbhadage/data-importer</a>
 
 	git clone https://github.com/vinayakbhadage/data-importer.git
 
-**Step 2**: Change the required parameter from this file **dataimport.sh** as mentioned [here](https://github.com/jprante/elasticsearch-jdbc)
+**Step 2**: Change the required parameter from this file **dataimport.sh** as mentioned <a  target="_blank" href="https://github.com/jprante/elasticsearch-jdbc">here</a>
 
 **Step 3:** Build the images from Dockerfile
 
@@ -65,7 +65,7 @@ Here I am going to tell you how to use this utility through [docker](https://www
 
  6. **SCHEDULE**="0 0/10 * * * ?"
 
-	Default interval for data-importer is 10 min. this is [Quartz cron trigger](http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger) syntax. 
+	Default interval for data-importer is 10 min. this is <a  target="_blank" href="http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger">Quartz cron trigger</a> syntax. 
  
  7. **SQL_SERVER_HOST**="Provide the value"
 
