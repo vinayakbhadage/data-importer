@@ -6,7 +6,7 @@ Need to provide the analytics and visualization for audit log data which is stor
  
 **Solution**
 
-one of the solution to this problem is to visualize the data in open source tool like <a  target="_blank" href="https://www.elastic.co/products/kibana">kibana </a>. But kibana uses the <a  target="_blank" href="https://www.elastic.co/products/elasticsearch">elasticsearch</a> for search and storage purpose.
+One of the solution to this problem is to visualize the data in open source tool like <a  target="_blank" href="https://www.elastic.co/products/kibana">kibana </a>. But kibana uses the <a  target="_blank" href="https://www.elastic.co/products/elasticsearch">elasticsearch</a> for search and storage purpose.
 
 So that need to import selected records from relational database into the elasticsearch 1.6. The new index will be created in elasticsearch for this data and it will be used by kibana.
 
@@ -43,57 +43,58 @@ Here I am going to tell you how to use this utility through <a  target="_blank" 
 **Step 4:** Run the data-importer by setting following parameter 
 
 
- 1. **LAST_EXECUTION_START**="2014-06-06T09:08:00.948Z"
+
+1.**LAST_EXECUTION_START**="2014-06-06T09:08:00.948Z"
     
-	This data time used to import the data from MS-SQL audit log table. All records in auditlog table with timestamp greater than this will be imported in Elastic search.
+This date time used to import the data from the log table of your database. All records in that table with timestamp column value greater than this will be imported in Elastic search.
 
- 2. **INDEX_NAME**=** Provide the value **
+2.**INDEX_NAME**=** Provide the value **
  
-	This one is index name for elasticsearch.
+This one is index name for elasticsearch.
 
- 3. **CLUSTER**=** Provide the value **
+3.**CLUSTER**=** Provide the value **
  	
-	Provide the elasticsearch cluster name.
+Provide the elasticsearch cluster name.
 
- 4. **ES_HOST**=** Provide the value **
+4.**ES_HOST**=** Provide the value **
  
- 	Provide the elastic search host name or IP address.
+Provide the elastic search host name or IP address.
 
- 5. **ES_PORT**="9300"
+5.**ES_PORT**="9300"
 
- 	Provide the elastic search host port number.
+Provide the elastic search host port number.
 
- 6. **SCHEDULE**="0 0/10 * * * ?"
+6.**SCHEDULE**="0 0/10 * * * ?"
 
-	Default interval for data-importer is 10 min. this is <a  target="_blank" href="http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger">Quartz cron trigger</a> syntax. 
+Default interval for data-importer is 10 min. this is <a  target="_blank" href="http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger">Quartz cron trigger</a> syntax. 
  
- 7. **SQL_SERVER_HOST**="Provide the value"
+7.**SQL_SERVER_HOST**="Provide the value"
 
-	It should be sql server database IP or hostname.
+It should be sql server database IP or hostname.
 
- 8. **DB_NAME**="Provide the value"
+8.**DB_NAME**="Provide the value"
 
-	It should be sql server database name.
+It should be sql server database name.
 
 
- 9. **DB_USER_NAME**="Provide the value"
+9.**DB_USER_NAME**="Provide the value"
  
-	It should be sql server user name, here server authentication is required.
+It should be sql server user name, here server authentication is required.
 
- 10. **DB_PASSWORD**="Provide the value"
+10.**DB_PASSWORD**="Provide the value"
 
-	It should be sql server user password, here server authentication is required.
+It should be sql server user password, here server authentication is required.
 
-	**Note:** Please change the environment variable as per your requirement
+**Note:** Please change the environment variable as per your requirement
 
-		docker run -d --name data-importer -e LAST_EXECUTION_START="2014-06-06T09:08:00.948Z" \
-		  -e INDEX_NAME="myindex"  -e CLUSTER="elasticsearch" -e ES_HOST="myeshost" \
-		  -e ES_PORT="9300" -e SCHEDULE="0 0/10 * * * ?" -e SQL_SERVER_HOST="mydb" \
-		  -e DB_NAME="mydb" -e DB_USER_NAME="myuser" -e DB_PASSWORD="find-out" data-importer
+	docker run -d --name data-importer -e LAST_EXECUTION_START="2014-06-06T09:08:00.948Z" \
+	  -e INDEX_NAME="myindex"  -e CLUSTER="elasticsearch" -e ES_HOST="myeshost" \
+	  -e ES_PORT="9300" -e SCHEDULE="0 0/10 * * * ?" -e SQL_SERVER_HOST="mydb" \
+	  -e DB_NAME="mydb" -e DB_USER_NAME="myuser" -e DB_PASSWORD="find-out" data-importer
 
 
 
-	Lastly checkout the status of elasticsearch index then you can find data over there.
+Lastly checkout the status of elasticsearch index then you can find data over there.
 
 
 
